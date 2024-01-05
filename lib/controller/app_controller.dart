@@ -2,18 +2,19 @@ import 'package:get/get.dart';
 import 'package:hava_durumu/models/weather_model.dart';
 import 'package:hava_durumu/services/remote_services/api_service.dart';
 
-class APPcontroller extends GetxController {
+class APPController extends GetxController {
   var service = ApiService();
-  List list = [].obs;
+  List<ResultModel> weatherlist = <ResultModel>[].obs;
 
   @override
-  void onInit() {
-    getWeatherList();
+  Future<void> onInit() async {
+    await getWeatherList();
     super.onInit();
   }
 
   Future<void> getWeatherList() async {
-    var liste = await service.getWeather();
-    list.assign(liste);
+    List<ResultModel> liste = <ResultModel>[];
+    liste = await service.getWeather();
+    weatherlist.assignAll(liste);
   }
 }
