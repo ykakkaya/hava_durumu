@@ -15,8 +15,8 @@ class ApiService {
     };
     var response = await dio.get(url, options: Options(headers: headers));
     if (response.statusCode == 200) {
-      List list = response.data["result"];
-      List<ResultModel> weatherList = list.map((e) => ResultModel.fromJson(e)).toList();
+      List liste = response.data["result"];
+      List<ResultModel> weatherList = liste.map((e) => ResultModel.fromJson(e)).toList();
 
       return weatherList;
     }
