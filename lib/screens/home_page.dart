@@ -15,43 +15,26 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
-      appBar: AppBar(),
-      body: Obx(
-        () => ListView.builder(
-            itemCount: controller.list.length,
-            itemBuilder: ((context, index) {
-              var item = controller.list[0][index];
-              return ListTile(
-                title: Text(item.day),
-              );
-            })),
-=======
       appBar: AppBar(
-        title: const Text("Merhaba"),
+        title: const Text("Kayseri İçin Haftalık Hava Durumu"),
         centerTitle: true,
->>>>>>> 39d535a44b73ed0ca24c2e7f77c226362cbb119e
       ),
-      body: Obx(() => ListView.builder(
-            scrollDirection: Axis.horizontal,
+      body: Obx(() => GridView.builder(
+            scrollDirection: Axis.vertical,
             itemCount: controller.weatherlist.length,
             itemBuilder: (context, index) {
               var item = controller.weatherlist[index];
-              return Padding(
-                padding: const EdgeInsets.all(28.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                        height: 100,
-                        child: Image.network(item.ikon.toString())),
-                    Text(item.day.toString()),
-                    Text(item.date.toString()),
-                    Text(item.description.toString()),
-                  ],
-                ),
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 80, child: Image.network(item.ikon.toString())),
+                  Text(item.day.toString()),
+                  Text(item.date.toString()),
+                  Text(item.description.toString()),
+                ],
               );
             },
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           )),
     );
   }
