@@ -11,7 +11,7 @@ String resultModelToJson(ResultModel data) => json.encode(data.toJson());
 class ResultModel {
   String? date;
   String? day;
-  String? icon;
+  String? ikon;
   String? description;
   String? status;
   String? degree;
@@ -23,7 +23,7 @@ class ResultModel {
   ResultModel({
     this.date,
     this.day,
-    this.icon,
+    this.ikon,
     this.description,
     this.status,
     this.degree,
@@ -36,7 +36,7 @@ class ResultModel {
   factory ResultModel.fromJson(Map<String, dynamic> json) => ResultModel(
         date: json["date"],
         day: json["day"],
-        icon: json["icon"],
+        ikon: json["icon"],
         description: json["description"],
         status: json["status"],
         degree: json["degree"],
@@ -49,7 +49,7 @@ class ResultModel {
   Map<String, dynamic> toJson() => {
         "date": date,
         "day": day,
-        "icon": icon,
+        "icon": ikon,
         "description": description,
         "status": status,
         "degree": degree,
