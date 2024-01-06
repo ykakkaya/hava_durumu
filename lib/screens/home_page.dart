@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
         () => ListView.builder(
             itemCount: controller.list.length,
             itemBuilder: ((context, index) {
-              var item = controller.list[index];
+              var item = controller.list[0][index];
               return ListTile(
                 title: Text(item.day),
               );
